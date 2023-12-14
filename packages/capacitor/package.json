@@ -1,0 +1,35 @@
+{
+  "name": "@spryrocks/capacitor-http-plugin",
+  "version": "0.0.0",
+  "main": "dist/plugin.cjs.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "unpkg": "dist/plugin.js",
+  "files": [
+    "dist/"
+  ],
+  "author": "",
+  "description": "MobileFilesystemPluginCore",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint './**/*.{ts,tsx}' --cache",
+    "build": "npm run clean && tsc && rollup -c rollup.config.mjs",
+    "clean": "rimraf ./dist",
+    "prepublishOnly": "npm run build",
+    "compile": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@spryrocks/mobile-http-plugin-core": "0.0.0"
+  },
+  "peerDependencies": {
+    "@capacitor/core": "^5.5.1"
+  },
+  "devDependencies": {
+    "@capacitor/core": "^5.5.1",
+    "@spryrocks/eslint-config": "^0.3.0-alpha.2",
+    "rollup": "^4.8.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
