@@ -1,2 +1,6 @@
+import {HttpClient} from './HttpClient';
+
+const impl = new HttpClient();
+
 export * from '@spryrocks/mobile-http-plugin-core';
-export {HttpClient} from './HttpClient';
+export {impl as HttpClient};
