@@ -33,6 +33,7 @@ export class HttpClient extends CoreHttpClient {
     const result = await CapacitorHttp.post({
       url: options.url,
       headers: options.headers,
+      data: options.data,
       responseType: options.responseType,
     });
     return {data: result.data};

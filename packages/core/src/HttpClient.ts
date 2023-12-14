@@ -1,30 +1,31 @@
-export type HttpMethod = 'get' | 'post';
 export type HttpResponseType = 'json';
 export type HttpHeaders = {[key: string]: string};
 
 export type RequestBaseOptions = {
   url: string;
   headers?: HttpHeaders;
+  responseType: HttpResponseType;
 };
 export type ResultBase = {
   data: undefined;
 };
 
-export type SendRequestOptions = {
-  url: string;
-  method: HttpMethod;
-  responseType: HttpResponseType;
-  headers?: HttpHeaders;
-};
-export type SendRequestResult = ResultBase;
-
 export type GetOptions = RequestBaseOptions;
 export type GetResult = ResultBase;
 
 export type PostOptions = RequestBaseOptions & {
-  responseType: HttpResponseType;
+  data: unknown;
 };
 export type PostResult = ResultBase;
+
+export type SendRequestOptions =
+  | ({
+      method: 'get';
+    } & GetOptions)
+  | ({
+      method: 'post';
+    } & PostOptions);
+export type SendRequestResult = ResultBase;
 
 export abstract class HttpClient {
   abstract sendRequest(options: SendRequestOptions): Promise<SendRequestResult>;
