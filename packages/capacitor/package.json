@@ -1,6 +1,6 @@
 {
   "name": "@spryrocks/capacitor-http-plugin",
-  "version": "5.0.0-alpha.2",
+  "version": "2.0.0-alpha.3",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -19,15 +19,15 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
-    "@spryrocks/mobile-http-plugin-core": "^5.0.0-alpha.2"
+    "@spryrocks/mobile-http-plugin-core": "^2.0.0-alpha.3"
   },
   "peerDependencies": {
-    "@capacitor/core": "^2.5.0",
-    "@capacitor-community/http": "0.3.2"
+    "@capacitor-community/http": "0.3.2",
+    "@capacitor/core": "^2.5.0"
   },
   "devDependencies": {
-    "@capacitor/core": "^2.5.0",
     "@capacitor-community/http": "0.3.2",
+    "@capacitor/core": "^2.5.0",
     "@spryrocks/eslint-config": "^0.3.0-alpha.2",
     "rollup": "^4.8.0"
   },
