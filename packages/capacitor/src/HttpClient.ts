@@ -6,36 +6,29 @@ import {
   SendRequestOptions,
   SendRequestResult,
 } from '@spryrocks/mobile-http-plugin-core';
-import {CapacitorHttp} from '@capacitor/core';
+import {Http, HttpOptions} from '@capacitor-community/http';
 import {HttpClient as CoreHttpClient} from '@spryrocks/mobile-http-plugin-core';
 
 export class HttpClient extends CoreHttpClient {
   override async sendRequest(options: SendRequestOptions): Promise<SendRequestResult> {
-    const method = options.method;
-    if (method === 'get') {
-      return this.get(options);
-    } else if (method === 'post') {
-      return this.post(options);
-    } else {
-      throw new Error(`Not supported method: ${method}`);
-    }
+    const method =
+      options.method === 'get' ? 'GET' : options.method === 'post' ? 'POST' : undefined;
+    const data = options.method === 'post' ? options.data : undefined;
+    const requestOptions: HttpOptions = {
+      method,
+      data,
+      headers: options.headers,
+      url: options.url,
+    };
+    const response = await Http.request(requestOptions);
+    return {data: response.data};
   }
 
   override async get(options: GetOptions): Promise<GetResult> {
-    const result = await CapacitorHttp.get({
-      url: options.url,
-      headers: options.headers,
-    });
-    return {data: result.data};
+    return this.sendRequest({method: 'get', ...options});
   }
 
   override async post(options: PostOptions): Promise<PostResult> {
-    const result = await CapacitorHttp.post({
-      url: options.url,
-      headers: options.headers,
-      data: options.data,
-      responseType: options.responseType,
-    });
-    return {data: result.data};
+    return this.sendRequest({method: 'post', ...options});
   }
 }

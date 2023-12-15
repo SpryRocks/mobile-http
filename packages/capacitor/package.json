@@ -22,10 +22,12 @@
     "@spryrocks/mobile-http-plugin-core": "^0.0.1-alpha.2"
   },
   "peerDependencies": {
-    "@capacitor/core": "^5.5.1"
+    "@capacitor/core": "^2.5.0",
+    "@capacitor-community/http": "0.3.2"
   },
   "devDependencies": {
-    "@capacitor/core": "^5.5.1",
+    "@capacitor/core": "^2.5.0",
+    "@capacitor-community/http": "0.3.2",
     "@spryrocks/eslint-config": "^0.3.0-alpha.2",
     "rollup": "^4.8.0"
   },
