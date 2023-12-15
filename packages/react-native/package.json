@@ -1,6 +1,6 @@
 {
   "name": "@spryrocks/react-native-http-plugin",
-  "version": "5.0.0-alpha.1",
+  "version": "5.0.0-alpha.2",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
   "types": "dist/esm/index.d.ts",
@@ -19,7 +19,7 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
-    "@spryrocks/mobile-http-plugin-core": "^5.0.0-alpha.1"
+    "@spryrocks/mobile-http-plugin-core": "^5.0.0-alpha.2"
   },
   "devDependencies": {
     "@spryrocks/eslint-config": "^0.3.0-alpha.2",
