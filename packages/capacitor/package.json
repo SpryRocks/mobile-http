@@ -19,7 +19,7 @@
     "compile": "tsc --noEmit"
   },
   "dependencies": {
-    "@spryrocks/mobile-http-plugin-core": "^2.0.0-alpha.3"
+    "@spryrocks/mobile-http-plugin-core": "^5.0.0-alpha.3"
   },
   "peerDependencies": {
     "@capacitor-community/http": "0.3.2",
