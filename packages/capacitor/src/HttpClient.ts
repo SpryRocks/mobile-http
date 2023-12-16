@@ -6,8 +6,12 @@ import {
   SendRequestOptions,
   SendRequestResult,
 } from '@spryrocks/mobile-http-plugin-core';
-import {Http, HttpOptions} from '@capacitor-community/http';
 import {HttpClient as CoreHttpClient} from '@spryrocks/mobile-http-plugin-core';
+import {HttpOptions} from '@capacitor-community/http';
+
+import {Plugins} from '@capacitor/core';
+
+const {Http} = Plugins;
 
 export class HttpClient extends CoreHttpClient {
   override async sendRequest(options: SendRequestOptions): Promise<SendRequestResult> {
