@@ -16,15 +16,16 @@ export class HttpClient extends CoreHttpClient {
       return this.get(options);
     } else if (method === 'post') {
       return this.post(options);
-    } else {
-      throw new Error(`Not supported method: ${method}`);
     }
+    throw new Error(`Not supported method: ${method}`);
   }
 
   override async get(options: GetOptions): Promise<GetResult> {
     const result = await CapacitorHttp.get({
       url: options.url,
       headers: options.headers,
+      readTimeout: options.readTimeout,
+      connectTimeout: options.connectTimeout,
     });
     return {data: result.data};
   }
@@ -33,6 +34,8 @@ export class HttpClient extends CoreHttpClient {
     const result = await CapacitorHttp.post({
       url: options.url,
       headers: options.headers,
+      readTimeout: options.readTimeout,
+      connectTimeout: options.connectTimeout,
       data: options.data,
       responseType: options.responseType,
     });

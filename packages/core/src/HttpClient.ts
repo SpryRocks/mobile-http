@@ -5,6 +5,8 @@ export type RequestBaseOptions = {
   url: string;
   headers?: HttpHeaders;
   responseType: HttpResponseType;
+  readTimeout?: number;
+  connectTimeout?: number;
 };
 export type ResultBase = {
   data: undefined;
